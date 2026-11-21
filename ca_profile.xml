@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CommunityApplications>
+  <Profile>
+    Unraid Docker templates by itsmemac for Community Applications. Each app has one template under templates/ that points at the app's published container image. Support for an app happens in that app's own GitHub issues, linked from its template.
+  </Profile>
+  <Icon>https://github.com/itsmemac.png</Icon>
+  <WebPage>https://github.com/itsmemac/unraid-template</WebPage>
+</CommunityApplications>
