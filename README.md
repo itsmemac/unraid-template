@@ -5,6 +5,7 @@ Docker templates for [Unraid Community Applications](https://ca.unraid.net), one
 | App | Template | What it is |
 | --- | --- | --- |
 | [Agent Cairn](https://github.com/itsmemac/AgentCairn) | [`templates/cairn.xml`](templates/cairn.xml) | Shared, persistent project memory for AI coding agents, backed by Neo4j |
+| [Packwright](https://github.com/itsmemac/Packwright) | [`templates/packwright.xml`](templates/packwright.xml) | Manage PS5 dump, image and package collections from a browser |
 
 ## Use it before it is listed
 

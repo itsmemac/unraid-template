@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>packwright</Name>
+  <Repository>ghcr.io/itsmemac/packwright:latest</Repository>
+  <Registry>https://github.com/itsmemac/Packwright/pkgs/container/packwright</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/itsmemac/Packwright/issues</Support>
+  <Project>https://github.com/itsmemac/Packwright</Project>
+  <Overview>Manage PS5 dump, image and package collections from your browser. Packwright has a library with search, convert between folder, exFAT, FFPKG, FFPFSC, ZArchive and debug package, verify, extract, repair, merge packages downloaded in parts, and send to a console.&#xD;
+&#xD;
+This is the Packwright desktop app running on the server and shown in the browser (noVNC), so it works on your games at the server's own disk speed instead of over a network share.&#xD;
+&#xD;
+Sign-in is always on: set a username and password below before the first start. The page is served over HTTPS with a self-signed certificate, so the browser asks you to accept it once. More accounts: docker exec -it packwright webauth-user add NAME.</Overview>
+  <Category>Tools: Other:</Category>
+  <WebUI>https://[IP]:[PORT:5800]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/itsmemac/unraid-template/main/templates/packwright.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/itsmemac/unraid-template/main/icons/packwright.png</Icon>
+  <ExtraParams>--hostname=packwright</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="Web UI port" Target="5800" Default="5800" Mode="tcp" Description="Open Packwright at https://SERVER-IP:5800." Type="Port" Display="always" Required="true" Mask="false">5800</Config>
+  <Config Name="Games" Target="/games" Default="/mnt/user/" Mode="rw" Description="The share or folder that holds your games. Packwright scans it as its library and writes results there." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/</Config>
+  <Config Name="Work files" Target="/temp" Default="/mnt/user/appdata/packwright/temp" Mode="rw" Description="Where conversions unpack a game while they work. It needs as much free space as your largest game; a cache pool is fastest." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/packwright/temp</Config>
+  <Config Name="Appdata" Target="/config" Default="/mnt/user/appdata/packwright" Mode="rw" Description="Settings, library cache, logs, the HTTPS certificate and the sign-in file." Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/packwright</Config>
+  <Config Name="Username" Target="WEB_AUTHENTICATION_USERNAME" Default="" Mode="" Description="The name you sign in with." Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="Password" Target="WEB_AUTHENTICATION_PASSWORD" Default="" Mode="" Description="The password you sign in with." Type="Variable" Display="always" Required="true" Mask="true"/>
+  <Config Name="User ID" Target="USER_ID" Default="99" Mode="" Description="Files are written as this user (99 is nobody, Unraid's default)." Type="Variable" Display="advanced" Required="true" Mask="false">99</Config>
+  <Config Name="Group ID" Target="GROUP_ID" Default="100" Mode="" Description="Files are written with this group (100 is users)." Type="Variable" Display="advanced" Required="true" Mask="false">100</Config>
+  <Config Name="Umask" Target="UMASK" Default="0000" Mode="" Description="Permissions for new files. 0000 matches Unraid shares." Type="Variable" Display="advanced" Required="false" Mask="false">0000</Config>
+  <Config Name="Screen width" Target="DISPLAY_WIDTH" Default="1920" Mode="" Description="Width of the screen shown in the browser." Type="Variable" Display="advanced" Required="false" Mask="false">1920</Config>
+  <Config Name="Screen height" Target="DISPLAY_HEIGHT" Default="1080" Mode="" Description="Height of the screen shown in the browser." Type="Variable" Display="advanced" Required="false" Mask="false">1080</Config>
+  <Config Name="Dark mode" Target="DARK_MODE" Default="1" Mode="" Description="1 for dark window frames and dialogs, 0 for light." Type="Variable" Display="advanced" Required="false" Mask="false">1</Config>
+  <Config Name="Use HTTPS" Target="SECURE_CONNECTION" Default="1" Mode="" Description="1 serves the page over HTTPS, which sign-in needs. Set 0 only behind your own HTTPS reverse proxy, and then also set WEB_AUTHENTICATION_ALLOW_INSECURE to 1." Type="Variable" Display="advanced" Required="false" Mask="false">1</Config>
+</Container>
